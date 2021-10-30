@@ -1,0 +1,11 @@
+###
+# Get the curent time in word
+GET http://localhost:3000/api/v1/clock/eng/talk/ HTTP/1.1
+
+###
+# Get the provided time as word
+GET http://localhost:3000/api/v1/clock/eng/talk/16:30 HTTP/1.1
+
+###
+# Get error when the provided time is not valid
+GET http://localhost:3000/api/v1/clock/eng/talk/00:70 HTTP/1.1

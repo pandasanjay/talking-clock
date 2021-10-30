@@ -34,7 +34,7 @@ Steps:
     - If >31 && <60 - "<Minute In Word> to <Hour>"
 
 
-Future enhancement in mind
+**Future enhancement in mind**
 - Multiple format input 12 hr and 24 hr format
 - Different formatted text (Internationalization)
 - Dynamic formatted template 
