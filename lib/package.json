@@ -2,10 +2,8 @@
   "name": "talking-clock",
   "version": "1.0.0",
   "main": "./dist/src/index.js",
+  "bin": "./dist/bin/index.js",
   "license": "MIT",
   "repository": "git@github.com:pandasanjay/talking-clock.git",
-  "author": "Sanjay <panda.sanjay18@gmail.com>",
-  "scripts": {
-    "postinstall": ""
-  }
+  "author": "Sanjay <panda.sanjay18@gmail.com>"
 }

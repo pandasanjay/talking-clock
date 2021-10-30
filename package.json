@@ -8,13 +8,13 @@
   "license": "MIT",
   "scripts": {
     "postinstall": "(yarn build); (cd api && npm install); (cd lib && npm install); (npm link ./lib);",
-    "build": "rm -rf dist && babel index.js -d dist && rm -rf lib/dist && babel lib -d lib/dist",
-    "start": "npm run build && node dist/index.js",
+    "build": "rm -rf lib/dist && babel lib -d lib/dist",
+    "start": "npm run build && node ./lib/dist/src/bin/index.js",
     "serve-api": "(cd api && yarn start)",
-    "talk": "node dist/index.js",
+    "talk": "talking-clock",
     "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
-    "lint": "eslint index.js lib api --fix",
-    "clean" : "rm -rf node_modules dist lib/dist api/node_modules"
+    "lint": "eslint lib api --fix",
+    "clean": "rm -rf node_modules dist lib/dist api/node_modules"
   },
   "devDependencies": {
     "@babel/cli": "^7.15.7",
@@ -34,12 +34,22 @@
   "jest": {
     "testEnvironment": "jest-environment-node",
     "coveragePathIgnorePatterns": [
-      "/node_modules/"
+      "/node_modules/",
+      "src/core/type/index.js",
+      "/dist/"
     ],
-    "testPathIgnorePatterns": ["/dist/"],
+    "collectCoverage": true,
+    "testPathIgnorePatterns": [
+      "/dist/",
+      "lib/dist"
+    ],
     "transform": {
       "\\.[jt]sx?$": "babel-jest"
-    }
+    },
+    "modulePathIgnorePatterns": [
+      "npm-cache",
+      ".npm"
+    ]
   },
   "dependencies": {
     "express": "^4.17.1"
