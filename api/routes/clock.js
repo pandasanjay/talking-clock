@@ -5,14 +5,11 @@ const router = express.Router();
 const talk = require("talking-clock").default
 
 
-/* GET users listing. */
+
+/* GET /en/talk/ time in word */
 router.get('/:lang/talk/:time?', (req, res) => {
   const {time:timeInput, lang} = req.params;
-  const date = new Date();
-  const hour = date.getHours()
-  const minute = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes()
-  const time = timeInput || `${hour}:${minute}`
-  talk(time, lang).then((timeWord) => {
+  talk(timeInput, lang).then((timeWord) => {
     res.json({
       word: timeWord
     })

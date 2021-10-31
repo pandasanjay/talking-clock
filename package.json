@@ -1,18 +1,18 @@
 {
   "name": "talking-clock-app",
   "version": "1.0.0",
-  "main": "dist/lib/index.js",
-  "bin": "dist/index.js",
+  "private": true,
   "repository": "git@github.com:pandasanjay/talking-clock.git",
   "author": "Sanjay <panda.sanjay18@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "(yarn build); (cd api && npm install); (cd lib && npm install); (npm link ./lib);",
+    "postinstall": "(npm run build); (cd api && npm install); (cd lib && npm install); (npm run link:lib);",
+    "link:lib": "npm link ./lib",
     "build": "rm -rf lib/dist && babel lib -d lib/dist",
-    "start": "npm run build && node ./lib/dist/src/bin/index.js",
+    "start": "(npm run build); (npm run link:lib); node ./lib/dist/bin/index.js",
     "serve-api": "(cd api && yarn start)",
     "talk": "talking-clock",
-    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
+    "test": "node ./node_modules/.bin/jest",
     "lint": "eslint lib api --fix",
     "clean": "rm -rf node_modules dist lib/dist api/node_modules"
   },
