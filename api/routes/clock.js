@@ -14,7 +14,7 @@ router.get("/:lang/talk/:time?", (req, res) => {
       });
     })
     .catch((err) => {
-      res.status(400).send({ err: err.message });
+      res.status(400).send({ error: err.message });
     });
 });
 

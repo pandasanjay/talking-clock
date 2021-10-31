@@ -25,6 +25,6 @@ describe("GET /:lang/talk/:time?", () => {
       .get("/api/v1/clock/en/talk/00:0")
       .set("Accept", "application/json")
       .expect("Content-Type", /json/)
-      .expect(400, { err: "Time should be format like h(h):mm" }, done);
+      .expect(400, { error: "Time should be format like h(h):mm" }, done);
   });
 });
