@@ -8,6 +8,7 @@ module.exports = {
       'airbnb-base',
       "prettier"
     ],
+    plugins: ["prettier"],
     parserOptions: {
       ecmaVersion: 12,
       sourceType: 'module',
@@ -15,7 +16,8 @@ module.exports = {
     rules: {
       "import/prefer-default-export": "off",
       "no-param-reassign": ["error", { "props": false }],
-      "no-underscore-dangle": "off"
+      "no-underscore-dangle": "off",
+      "prettier/prettier": ["error"]
     },
     ignorePatterns: ["**/dist/*"]
   };
