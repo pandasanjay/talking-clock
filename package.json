@@ -13,7 +13,8 @@
     "serve-api": "(cd api && yarn start)",
     "talk": "talking-clock",
     "test": "node ./node_modules/.bin/jest",
-    "lint": "eslint lib api --fix",
+    "lint": "eslint lib api",
+    "lint:fix": "npm run lint --fix",
     "clean": "rm -rf node_modules dist lib/dist api/node_modules"
   },
   "devDependencies": {
